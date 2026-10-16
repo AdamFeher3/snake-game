@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Knewave";
+    cursor: default;
+    image-rendering: pixelated;
+}
+
+:root {
+    --bg-color: rgb(20,50,0);
+    --green: rgb(80,180,50);
+    --yellow: rgb(200,220,20);
+    --black: rgb(20,20,20);
+    --white: rgb(220,220,220);
+}
+
+body {
+    overflow: hidden;
+    background: radial-gradient(
+        var(--bg-color),
+        var(--bg-color),
+        var(--black)
+    );
+}
+
+.main {
+    width: 100%;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 0 4vmin var(--black);
+}
+
+button {
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+button:hover {
+    transform: scale(1.12);
+    text-shadow: 0 0 2vmin var(--black);
+    color: var(--yellow);
+}
+
+.menu,
+.difficulty,
+.game,
+.pause,
+.over,
+.controls,
+.win {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12vmin;
+}
+
+.difficulty,
+.game,
+.pause,
+.over,
+.controls,
+.win {
+    display: none;
+}
+
+.menu .title {
+    position: relative;
+}
+
+.menu .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4vmin;
+    aspect-ratio: 8;
+    background-color: var(--yellow);
+    transform: translate(-6vmin, 15vmin) rotate(10deg);
+}
+
+.menu .title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.6vmin;
+    aspect-ratio: 1;
+    background-color: var(--green);
+    border-radius: 50%;
+    transform: translate(-3vmin, 13.5vmin) scaleX(1.2);
+    box-shadow: -4px 4px 4px var(--black);
+}
+
+.over .title {
+    animation: anim 1s linear infinite;
+}
+
+.win .title {
+    color: var(--yellow);
+    animation: anim 1s linear infinite;
+}
+
+@keyframes anim {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.game {
+    gap: 0;
+}
+
+.pause {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+}
+
+.pause .title {
+    font-size: 18vmin;
+    color: var(--yellow);
+}
+
+.title {
+    font-size: 14vmin;
+    color: var(--green);
+    text-shadow: -4px 4px 8px var(--black);
+    text-align: center;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    font-size: 7vmin;
+    color: var(--green);
+    padding: 2vmin;
+    letter-spacing: 0.5vmin;
+    background: none;
+    border: none;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 3vmin;
+}
+
+.stats {
+    width: 60vmin;
+    height: fit-content;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1vmin solid var(--green);
+    border-bottom-width: 0.5vmin;
+    background-color: rgba(255,255,255,0.08);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vmin;
+    font-size: 3.4vmin;
+    color: var(--white);
+    text-shadow: -3px 3px 0 var(--black);
+}
+
+.canvas {
+    width: 60vmin;
+    aspect-ratio: 1;
+    border: 1vmin solid var(--green);
+    border-top-width: 0.5vmin;
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: row;
+    gap: 18vmin;
+}
+
+.value,
+.key {
+    color: var(--white);
+    text-shadow: -3px 3px 0 var(--black);
+    display: flex;
+    flex-direction: column;
+    font-size: 4vmin;
+    letter-spacing: 0.4vmin;
+}
+
+.pause-resume {
+    display: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    letter-spacing: 1vmin;
+}
+
+@media only screen and (orientation: portrait) {
+
+    .menu,
+    .difficulty,
+    .over,
+    .controls {
+        gap: 20vmax;
+    }
+
+    .game {
+        gap: 0;
+    }
+
+    .options {
+        flex-direction: column;
+    }
+
+    .title,
+    .btn {
+        transform: scale(1.2);
+    }
+
+    button:hover {
+        transform: scale(1.32);
+    }
+
+    @keyframes anim {
+        0% { transform: scale(1.2); }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1.2); }
+    }
+
+    .stats,
+    .canvas {
+        width: 85vmin;
+    }
+
+    .stat {
+        font-size: 5vmin;
+    }
+
+    #controlsBtn {
+        display: none;
+    }
+
+    .pause {
+        gap: 6vmin;
+    }
+
+    .game .pause-resume {
+        margin-top: 8vmin;
+    }
+
+    .pause-resume {
+        display: flex;
+        font-size: 10vmin;
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Snake Game</title>
+</head>
+<body>
+    <main class="main">
+
+        <section class="menu" id="menu">
+            <div class="title">SNAKE<br>GAME</div>
+            <div class="menu-button">
+                <button type="button" class="btn" id="start">PLAY</button>
+                <button type="button" class="btn" id="controlsBtn">CONTROLS</button>
+            </div>
+        </section>
+
+        <section class="controls" id="controls">
+            <div class="title">CONTROLS</div>
+            <div class="controls-container">
+                <div class="value">
+                    <p>LEFT</p>
+                    <p>RIGHT</p>
+                    <p>UP</p>
+                    <p>DOWN</p>
+                    <p>PAUSE</p>
+                </div>
+                <div class="key">
+                    <p>A / Left Arrow</p>
+                    <p>D / Right Arrow</p>
+                    <p>W / Up Arrow</p>
+                    <p>S / Down Arrow</p>
+                    <p>P / Escape</p>
+                </div>
+            </div>
+            <button type="button" class="btn" id="back">BACK</button>
+        </section>
+
+        <section class="difficulty" id="difficulty">
+            <div class="title">SELECT<br>DIFFICULTY</div>
+            <div class="options">
+                <button type="button" class="option btn" value="easy">EASY</button>
+                <button type="button" class="option btn" value="medium">MEDIUM</button>
+                <button type="button" class="option btn" value="hard">HARD</button>
+            </div>
+        </section>
+
+        <section class="game" id="game">
+            <div class="stats">
+                <div class="stat">
+                    <p>SCORE:</p>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat">
+                    <p>HIGHSCORE:</p>
+                    <span id="highscore">0</span>
+                </div>
+            </div>
+            <canvas class="canvas" id="canvas"></canvas>
+            <button type="button" class="btn pause-resume">||</button>
+        </section>
+
+        <section class="pause" id="pause">
+            <div class="title">PAUSE</div>
+            <button type="button" class="btn pause-resume">►</button>
+        </section>
+
+        <section class="over" id="over">
+            <div class="title">GAME<br>OVER</div>
+            <button type="button" class="btn restart">RESTART</button>
+        </section>
+
+        <section class="win" id="win">
+            <div class="title">YOU WIN !!</div>
+            <button type="button" class="btn restart">RESTART</button>
+        </section>
+
+        <script type="module" src="./src/Main.js"></script>
+    </main>
+</body>
+</html>
