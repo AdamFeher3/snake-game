@@ -2,7 +2,7 @@ import { state } from "../game/GameState.js";
 
 export class Keyboard {
 
-    static init(snake, game) {
+    static init(snake, audio, game) {
         
         const leftKey = /(KeyA|ArrowLeft)/i;
         const rightKey = /(KeyD|ArrowRight)/i;
@@ -39,20 +39,28 @@ export class Keyboard {
 
             // SNAKE MOVEMENT CONTROLS
             if ( leftKey.test(key) ) {
-                if ( snake.dir !== "R" && snake.nextDir !== "R" )
+                if ( snake.dir !== "R" && snake.nextDir !== "R" ) {
                     snake.nextDir = "L";
+                    audio.playSound("snake1");
+                }
             }
             if ( rightKey.test(key) ) {
-                if ( snake.dir !== "L" && snake.nextDir !== "L" )
+                if ( snake.dir !== "L" && snake.nextDir !== "L" ) {
                     snake.nextDir = "R";
+                    audio.playSound("snake1");
+                }
             }
             if ( upKey.test(key) ) {
-                if ( snake.dir !== "D" && snake.nextDir !== "D" )
+                if ( snake.dir !== "D" && snake.nextDir !== "D" ) {
                     snake.nextDir = "U";
+                    audio.playSound("snake2");
+                }
             }
             if ( downKey.test(key) ) {
-                if ( snake.dir !== "U" && snake.nextDir !== "U" )
+                if ( snake.dir !== "U" && snake.nextDir !== "U" ) {
                     snake.nextDir = "D";
+                    audio.playSound("snake2");
+                }
             }
         });
     }

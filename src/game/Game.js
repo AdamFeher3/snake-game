@@ -8,7 +8,7 @@ import { Score } from "./Score.js";
 
 export class Game {
 
-    constructor() {
+    constructor(audio) {
 
         this.state = state.MENU;
 
@@ -22,7 +22,9 @@ export class Game {
         this.apple = new Apple();
         this.score = new Score();
 
-        Keyboard.init(this.snake, this);
+        this.audio = audio;
+
+        Keyboard.init(this.snake, this.audio, this);
 
         /** @type {CanvasRenderingContext2D} */
         this.ctx = dom.canvas.getContext("2d");
@@ -72,6 +74,8 @@ export class Game {
             // CHECK SNAKE COLLISION WITH APPLE
             const eatApple = this.apple.eatApple(this.snake);
             if ( eatApple ) {
+
+                this.audio.playSound("apple", 0.25);
 
                 this.score.add(this.diffName);              // INCREASE SCORE
                 this.snake.grow();                          // GROW SNAKE
@@ -136,7 +140,9 @@ export class Game {
 
         // GAME OVER
         this.state = state.OVER;
-        
+
+        this.audio.playSound("game-over");
+
         if ( this.gameLoop.loop !== null ) {
             cancelAnimationFrame(this.gameLoop.loop);
             this.gameLoop.loop = null;
@@ -164,6 +170,8 @@ export class Game {
 
         // GAME WIN
         this.state = state.OVER;
+
+        this.audio.playSound("win");
 
         if ( this.gameLoop.loop !== null ) {
             cancelAnimationFrame(this.gameLoop.loop);

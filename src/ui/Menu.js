@@ -4,7 +4,14 @@ import { state } from "../game/GameState.js";
 
 export class Menu {
 
-    static init(game) {
+    static init(game, audio) {
+
+        // PLAY BUTTON SOUND
+        dom.btns.forEach(btn => {
+            btn.addEventListener("mouseover", () => {
+                audio.playSound("button");
+            });
+        });
 
         // GO TO DIFFICULTY OPTIONS SCREEN
         dom.menu.startBtn.addEventListener("click", () => {

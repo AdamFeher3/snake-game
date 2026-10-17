@@ -50,7 +50,10 @@ export const dom = {
     },
 
     // RESTART BUTTON
-    restartBtn: document.querySelectorAll(".restart")
+    restartBtn: document.querySelectorAll(".restart"),
+
+    // ALL BUTTONS
+    btns: document.querySelectorAll(".btn")
 };
 
 // CELL SIZE
