@@ -11,7 +11,7 @@ export class Sound {
 
         if ( !audio ) {
             audio = new Audio();
-            audio.src = `/src/res/audio/${url}.mp3`;
+            audio.src = `./src/res/audio/${url}.mp3`;
             this.sounds.set(url, audio);
         }
 
